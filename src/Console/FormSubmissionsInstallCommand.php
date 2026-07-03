@@ -21,11 +21,15 @@ final class FormSubmissionsInstallCommand extends Command
     {
         $force = (bool) $this->option('force');
 
-        $params = ['--tag' => 'form-submissions-config'];
-        if ($force) {
-            $params['--force'] = true;
+        // Publish config always; publish the migration too so a broker that turns off
+        // register_migrations (auto-load) can still land it in its own migration set.
+        foreach (['form-submissions-config', 'form-submissions-migrations'] as $tag) {
+            $params = ['--tag' => $tag];
+            if ($force) {
+                $params['--force'] = true;
+            }
+            $this->call('vendor:publish', $params);
         }
-        $this->call('vendor:publish', $params);
 
         $this->components->info('Running migrations…');
         $this->call('migrate', $force ? ['--force' => true] : []);
