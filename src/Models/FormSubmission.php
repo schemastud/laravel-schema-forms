@@ -1,6 +1,6 @@
 <?php
 
-namespace Rushing\FormSubmissions\Models;
+namespace Rushing\SchemaForms\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * and an optional user — nothing about mail, circuits, or any vertical vocabulary.
  *
  * Not final — a consuming app may extend it (add columns/relations) and point
- * `config('form-submissions.models.form_submission')` at the subclass (Spatie
+ * `config('schema-forms.models.form_submission')` at the subclass (Spatie
  * swappable-model pattern). Table name is read from config at runtime.
  */
 class FormSubmission extends Model
@@ -27,6 +27,6 @@ class FormSubmission extends Model
 
     public function getTable(): string
     {
-        return config('form-submissions.table_names.form_submissions', 'form_submissions');
+        return config('schema-forms.table_names.form_submissions', 'form_submissions');
     }
 }

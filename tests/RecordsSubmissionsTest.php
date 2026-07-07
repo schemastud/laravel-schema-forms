@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Event;
-use Rushing\FormSubmissions\Actions\RecordsSubmissions;
-use Rushing\FormSubmissions\Events\SubmissionReceived;
-use Rushing\FormSubmissions\Models\FormSubmission;
+use Rushing\SchemaForms\Actions\RecordsSubmissions;
+use Rushing\SchemaForms\Events\SubmissionReceived;
+use Rushing\SchemaForms\Models\FormSubmission;
 
 it('persists a submission and fires SubmissionReceived', function () {
     Event::fake([SubmissionReceived::class]);
@@ -26,7 +26,7 @@ it('persists a submission and fires SubmissionReceived', function () {
 });
 
 it('writes to the config-driven table name', function () {
-    config()->set('form-submissions.table_names.form_submissions', 'form_submissions');
+    config()->set('schema-forms.table_names.form_submissions', 'form_submissions');
 
     app(RecordsSubmissions::class)->record('contact', null, ['message' => 'hi']);
 
@@ -35,7 +35,7 @@ it('writes to the config-driven table name', function () {
 });
 
 it('resolves the model through swappable-model config', function () {
-    config()->set('form-submissions.models.form_submission', CustomSubmission::class);
+    config()->set('schema-forms.models.form_submission', CustomSubmission::class);
 
     $submission = app(RecordsSubmissions::class)->record('demo', null, ['ok' => true]);
 

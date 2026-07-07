@@ -1,8 +1,8 @@
 <?php
 
-namespace Rushing\FormSubmissions\Events;
+namespace Rushing\SchemaForms\Events;
 
-use Rushing\FormSubmissions\Models\FormSubmission;
+use Rushing\SchemaForms\Models\FormSubmission;
 
 /**
  * The only outward signal the base store emits: a submission has been durably

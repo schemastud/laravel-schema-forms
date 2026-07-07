@@ -1,10 +1,10 @@
 <?php
 
-namespace Rushing\FormSubmissions\Actions;
+namespace Rushing\SchemaForms\Actions;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use Rushing\FormSubmissions\Events\SubmissionReceived;
-use Rushing\FormSubmissions\Models\FormSubmission;
+use Rushing\SchemaForms\Events\SubmissionReceived;
+use Rushing\SchemaForms\Models\FormSubmission;
 
 /**
  * The single deep interface of the base store: persist a {@see FormSubmission}
@@ -29,7 +29,7 @@ class RecordsSubmissions
         ?string $userId = null,
     ): FormSubmission {
         /** @var class-string<FormSubmission> $model */
-        $model = config('form-submissions.models.form_submission', FormSubmission::class);
+        $model = config('schema-forms.models.form_submission', FormSubmission::class);
 
         $submission = $model::query()->create([
             'form_key' => $formKey,

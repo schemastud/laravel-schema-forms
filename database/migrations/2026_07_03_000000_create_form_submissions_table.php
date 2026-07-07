@@ -30,6 +30,6 @@ return new class extends Migration
 
     private function table(): string
     {
-        return config('form-submissions.table_names.form_submissions', 'form_submissions');
+        return config('schema-forms.table_names.form_submissions', 'form_submissions');
     }
 };

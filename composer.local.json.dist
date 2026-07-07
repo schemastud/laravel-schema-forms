@@ -1,0 +1,12 @@
+{
+    "//": "Local co-dev overlay template. Copy to composer.local.json (gitignored), then `composer update rushing/*` to symlink sibling package checkouts over the git ship-contract. Delete and re-install to resolve from git as CI does.",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}

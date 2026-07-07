@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Rushing\FormSubmissions\Tests\TestCase;
+use Rushing\SchemaForms\Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class)->in('.');
