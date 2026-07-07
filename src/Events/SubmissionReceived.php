@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\FormSubmissions\Events;
 
 use Rushing\FormSubmissions\Models\FormSubmission;
@@ -12,7 +10,7 @@ use Rushing\FormSubmissions\Models\FormSubmission;
  * for this, guaranteeing persistence always precedes any side effect — a failing
  * or absent listener can never lose a submission.
  */
-final class SubmissionReceived
+class SubmissionReceived
 {
-    public function __construct(public readonly FormSubmission $submission) {}
+    public function __construct(public FormSubmission $submission) {}
 }

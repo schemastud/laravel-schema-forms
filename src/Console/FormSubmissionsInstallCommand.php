@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\FormSubmissions\Console;
 
 use Illuminate\Console\Command;
@@ -11,7 +9,7 @@ use Illuminate\Console\Command;
  * keep `register_migrations=true` only need the config publish; a broker that turns
  * registration off uses this to publish the migration into its per-tenant set.
  */
-final class FormSubmissionsInstallCommand extends Command
+class FormSubmissionsInstallCommand extends Command
 {
     protected $signature = 'form-submissions:install {--force : Overwrite existing published files}';
 

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\FormSubmissions\Actions;
 
 use Illuminate\Contracts\Events\Dispatcher;
@@ -15,9 +13,9 @@ use Rushing\FormSubmissions\Models\FormSubmission;
  * knows nothing about notification — persistence completes before the event fires,
  * so any reactive listener runs only against an already-durable record.
  */
-final class RecordsSubmissions
+class RecordsSubmissions
 {
-    public function __construct(private readonly Dispatcher $events) {}
+    public function __construct(private Dispatcher $events) {}
 
     /**
      * @param  array<string, mixed>  $payload

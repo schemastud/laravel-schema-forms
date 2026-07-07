@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use Illuminate\Support\Facades\Event;
 use Rushing\FormSubmissions\Actions\RecordsSubmissions;
 use Rushing\FormSubmissions\Events\SubmissionReceived;

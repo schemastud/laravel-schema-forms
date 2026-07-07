@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\FormSubmissions;
 
 use Illuminate\Support\ServiceProvider;
@@ -12,7 +10,7 @@ use Rushing\FormSubmissions\Console\FormSubmissionsInstallCommand;
  * the single migration. No routes, no notification, no vertical vocabulary — this
  * leaf owns only "a form was submitted".
  */
-final class FormSubmissionsServiceProvider extends ServiceProvider
+class FormSubmissionsServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
