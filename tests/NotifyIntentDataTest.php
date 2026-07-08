@@ -16,7 +16,7 @@ it('marks the platform data object for TypeScript generation', function () {
 });
 
 it('builds a notify intent from the x-notify keyword, config filling the gaps', function () {
-    $intent = NotifyIntent::fromSchema(
+    $intent = NotifyIntent::forSchema(
         [Keywords::Notify => ['to' => 'ops@example.com']],
         ['subject' => 'Fallback subject', 'channel' => 'mail'],
     );
@@ -27,8 +27,23 @@ it('builds a notify intent from the x-notify keyword, config filling the gaps', 
 });
 
 it('falls back entirely to config when x-notify is absent', function () {
-    $intent = NotifyIntent::fromSchema([], ['to' => 'default@example.com']);
+    $intent = NotifyIntent::forSchema([], ['to' => 'default@example.com']);
 
     expect($intent->to)->toBe('default@example.com')
         ->and($intent->channel)->toBe('mail');
+});
+
+it('round-trips a flat intent array through from() without the schema constructor hijacking it', function () {
+    // The outbox rebuilds the intent from a stored snapshot on replay via NotifyIntent::from().
+    // The schema constructor is `forSchema` (not `fromSchema`) precisely so it does NOT hijack
+    // this call and drop to/subject.
+    $intent = NotifyIntent::from([
+        'to' => 'ops@example.com',
+        'subject' => 'New submission',
+        'channel' => 'slack',
+    ]);
+
+    expect($intent->to)->toBe('ops@example.com')
+        ->and($intent->subject)->toBe('New submission')
+        ->and($intent->channel)->toBe('slack');
 });

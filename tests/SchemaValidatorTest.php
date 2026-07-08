@@ -30,3 +30,11 @@ it('returns errors for an invalid payload', function () use ($schema) {
 
     expect($errors)->not->toBe([]);
 });
+
+it('treats an empty schema as accept-all instead of throwing', function () {
+    // A host that resolves no schema for a form key passes `[]`; that must degrade to
+    // accept-all, not a 500 (opis rejects the JSON array `[]` as an invalid schema).
+    $errors = (new SchemaValidator)->validate(['email' => 'anything'], []);
+
+    expect($errors)->toBe([]);
+});

@@ -28,7 +28,7 @@ class NotifyOnSubmission
     {
         $schema = $this->registry->find($event->submission->form_key) ?? [];
 
-        $intent = NotifyIntent::fromSchema(
+        $intent = NotifyIntent::forSchema(
             $schema,
             (array) config('schema-forms.default_notify', []),
         );

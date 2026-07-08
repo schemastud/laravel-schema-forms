@@ -17,6 +17,13 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
  * A platform Data object: it emits a TypeScript type (#[TypeScript]) and a JSON Schema
  * (SchemaIdentity) from one declaration, so the object contract and its artifacts never
  * drift.
+ *
+ * The schema constructor is named `forSchema`, NOT `fromSchema`: Spatie routes the generic
+ * `NotifyIntent::from($array)` to any magic `from*` method whose first parameter accepts the
+ * payload, so a `fromSchema(array)` hijacks `from()` and silently mis-hydrates a flat
+ * `{to,subject,channel}` array (returning nulls, since it looks for `x-notify`). Keeping the
+ * name off the `from` prefix leaves `from()` on Spatie's standard property mapping — which the
+ * outbox relies on when it rebuilds the intent from a stored snapshot on replay.
  */
 #[TypeScript]
 class NotifyIntent extends Data implements SchemaIdentity
@@ -33,7 +40,7 @@ class NotifyIntent extends Data implements SchemaIdentity
      * @param  array<string, mixed>  $schema
      * @param  array<string, mixed>  $default
      */
-    public static function fromSchema(array $schema, array $default = []): self
+    public static function forSchema(array $schema, array $default = []): self
     {
         $notify = is_array($schema[Keywords::Notify] ?? null) ? $schema[Keywords::Notify] : [];
 

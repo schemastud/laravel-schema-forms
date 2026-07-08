@@ -27,7 +27,11 @@ class SchemaValidator
             unset($schema['$id']);
         }
 
-        $schemaObject = json_decode(json_encode($schema), false);
+        // An empty schema means "no constraints" (JSON Schema treats `{}` as accept-all).
+        // Encode `[]` as the object `{}`, not the JSON array `[]` (which opis rejects as an
+        // invalid schema and throws) — so a host that resolves no schema for a form key
+        // degrades to accept-all instead of a 500 on every submission.
+        $schemaObject = json_decode(json_encode($schema ?: new \stdClass), false);
         $payloadObject = json_decode(json_encode($payload ?: new \stdClass), false);
 
         $result = (new Validator)->validate($payloadObject, $schemaObject);

@@ -26,7 +26,7 @@ abstract class TestCase extends Orchestra
         ]);
 
         // The config-backed registry resolves `waitlist` to a schema carrying x-notify,
-        // so the notification tests exercise the real fromSchema path (no file registry
+        // so the notification tests exercise the real forSchema path (no file registry
         // in the base package — a satellite supplies that).
         $app['config']->set('schema-forms.forms.waitlist', [
             '$id' => 'waitlist/1',
