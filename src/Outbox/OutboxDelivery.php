@@ -25,8 +25,15 @@ use Rushing\SchemaForms\Notifiers\OutboxSubmissionNotifier;
  */
 class OutboxDelivery
 {
-    public function record(FormSubmission $submission, NotifyIntent $intent, SubmissionNotifier $delivery): SubmissionNotification
+    public function record(FormSubmission $submission, NotifyIntent $intent, SubmissionNotifier $delivery): ?SubmissionNotification
     {
+        // An intent with no recipient has nothing to deliver and nothing to replay, so
+        // recording it would only litter the outbox with permanently-inert rows (every
+        // notify-less submission — e.g. per-tenant circuit intake — would leave one). Skip.
+        if ($intent->to === null || $intent->to === '') {
+            return null;
+        }
+
         $entry = $this->model()::query()->create([
             'submission_id' => $submission->getKey(),
             'form_key' => $submission->form_key,
