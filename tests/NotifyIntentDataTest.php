@@ -15,7 +15,7 @@ it('marks the platform data object for TypeScript generation', function () {
     expect($attributes)->not->toBeEmpty();
 });
 
-it('builds a notify intent from the x-notify keyword, config filling the gaps', function () {
+it('builds a notify intent from the x-swf-notify keyword, config filling the gaps', function () {
     $intent = NotifyIntent::forSchema(
         [Keywords::Notify => ['to' => 'ops@example.com']],
         ['subject' => 'Fallback subject', 'channel' => 'mail'],
@@ -26,7 +26,7 @@ it('builds a notify intent from the x-notify keyword, config filling the gaps', 
         ->and($intent->channel)->toBe('mail');
 });
 
-it('falls back entirely to config when x-notify is absent', function () {
+it('falls back entirely to config when x-swf-notify is absent', function () {
     $intent = NotifyIntent::forSchema([], ['to' => 'default@example.com']);
 
     expect($intent->to)->toBe('default@example.com')

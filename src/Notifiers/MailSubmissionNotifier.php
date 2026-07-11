@@ -10,7 +10,7 @@ use Rushing\SchemaForms\Notifications\NewSubmissionNotification;
 
 /**
  * The default binding: mail a NewSubmissionNotification to the intent's recipient. With no
- * recipient (no `x-notify.to` and no config default) there is nowhere to send, so it does
+ * recipient (no `x-swf-notify.to` and no config default) there is nowhere to send, so it does
  * nothing — the submission is already persisted, so silence here loses nothing.
  *
  * Sends with `notifyNow` (synchronous), NOT the queued `notify`, on purpose: the outbox is

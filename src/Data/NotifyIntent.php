@@ -9,10 +9,10 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
 
 /**
  * Where a submission's notification should go, built from the form schema's
- * `x-notify` keyword (`{"x-notify": {"to": "...", "subject": "...", "channel": "..."}}`)
+ * `x-swf-notify` keyword (`{"x-swf-notify": {"to": "...", "subject": "...", "channel": "..."}}`)
  * with a config-level fallback (`schema-forms.default_notify`). The keyword is
- * owned/declared by {@see Keywords} — unprefixed because notification routing is a
- * cross-app concern, not host-private.
+ * owned/declared by {@see Keywords} — prefixed `x-swf-*` because notification is this
+ * engine's own submission/outbox machinery (tier doctrine, issue 04).
  *
  * A platform Data object: it emits a TypeScript type (#[TypeScript]) and a JSON Schema
  * (SchemaIdentity) from one declaration, so the object contract and its artifacts never
@@ -21,7 +21,7 @@ use Spatie\TypeScriptTransformer\Attributes\TypeScript;
  * The schema constructor is named `forSchema`, NOT `fromSchema`: Spatie routes the generic
  * `NotifyIntent::from($array)` to any magic `from*` method whose first parameter accepts the
  * payload, so a `fromSchema(array)` hijacks `from()` and silently mis-hydrates a flat
- * `{to,subject,channel}` array (returning nulls, since it looks for `x-notify`). Keeping the
+ * `{to,subject,channel}` array (returning nulls, since it looks for `x-swf-notify`). Keeping the
  * name off the `from` prefix leaves `from()` on Spatie's standard property mapping — which the
  * outbox relies on when it rebuilds the intent from a stored snapshot on replay.
  */
@@ -35,7 +35,7 @@ class NotifyIntent extends Data implements SchemaIdentity
     ) {}
 
     /**
-     * Build from a form schema's `x-notify`, falling back per-key to the config default.
+     * Build from a form schema's `x-swf-notify`, falling back per-key to the config default.
      *
      * @param  array<string, mixed>  $schema
      * @param  array<string, mixed>  $default

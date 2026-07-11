@@ -13,7 +13,7 @@ use Rushing\SchemaForms\Events\SubmissionReceived;
  * hard ordering guarantee holds: a submission is durable before any notification is
  * attempted.
  *
- * Rebuilds the NotifyIntent from the submission's form schema (`x-notify`, looked up via
+ * Rebuilds the NotifyIntent from the submission's form schema (`x-swf-notify`, looked up via
  * the SchemaRegistry) with the config fallback, then invokes whatever SubmissionNotifier
  * is bound (default mail, or a host override).
  */

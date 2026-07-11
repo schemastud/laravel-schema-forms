@@ -12,15 +12,18 @@ namespace Rushing\SchemaForms;
  * some package declares it here, and drift is caught by each package asserting its
  * shipped schemas use only `base ∪ own` (see the KeywordOwnership test).
  *
- * Namespacing: engines prefix their private keywords `x-{prefix}-*` (composition
- * `swc`, knowledge `swk`). A genuinely cross-cutting term stays unprefixed (blank
- * namespace) so it reads the same everywhere — but it must still be DECLARED by its
- * owner, which is what this class does for `x-notify`. Notification routing is a
- * cross-app concern, not host-private, so unprefixed-but-declared is correct.
+ * Namespacing: each engine prefixes its private keywords `x-{prefix}-*` (composition
+ * `swc`, knowledge `swk`, schema-forms `swf`). Notification routing is schema-forms' OWN
+ * submission/outbox machinery — the `NotifyIntent` shape and delivery are this package's,
+ * not a term every engine must mean identically — so per the tier doctrine (splicewire-app
+ * composition-dialect-gaps issue 04) it takes this engine's `swf` prefix rather than sitting
+ * in the unprefixed base commons. (An earlier revision argued the opposite — that notification
+ * is cross-cutting — and left it unprefixed; that was reconsidered under the rule of thumb:
+ * unprefixed = must mean the same thing in every engine/host; owned-by-one-engine takes a prefix.)
  */
 class Keywords
 {
-    public const Notify = 'x-notify';
+    public const Notify = 'x-swf-notify';
 
     /**
      * Every `x-` keyword this package owns.

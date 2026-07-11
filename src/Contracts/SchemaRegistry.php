@@ -5,7 +5,7 @@ namespace Rushing\SchemaForms\Contracts;
 use Rushing\SchemaForms\Registry\ArraySchemaRegistry;
 
 /**
- * Resolves a form key to its JSON-Schema document (including any `x-notify` keyword),
+ * Resolves a form key to its JSON-Schema document (including any `x-swf-notify` keyword),
  * so the notification listener can rebuild a NotifyIntent after persistence without the
  * base package knowing HOW schemas are stored.
  *

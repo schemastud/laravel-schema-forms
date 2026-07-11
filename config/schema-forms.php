@@ -81,8 +81,8 @@ return [
     | Default notify intent (config-level fallback)
     |--------------------------------------------------------------------------
     |
-    | Used when a form schema omits `x-notify` (or omits individual keys). A form's
-    | own `x-notify` keyword always wins per key.
+    | Used when a form schema omits `x-swf-notify` (or omits individual keys). A form's
+    | own `x-swf-notify` keyword always wins per key.
     |
     */
     'default_notify' => [
