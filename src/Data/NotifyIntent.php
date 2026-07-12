@@ -2,7 +2,7 @@
 
 namespace Rushing\SchemaForms\Data;
 
-use Rushing\LaravelDataSchemas\Contracts\SchemaIdentity;
+use Schemastud\DataSchemas\Contracts\SchemaIdentity;
 use Rushing\SchemaForms\Keywords;
 use Spatie\LaravelData\Data;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
