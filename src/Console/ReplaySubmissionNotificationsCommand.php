@@ -1,9 +1,9 @@
 <?php
 
-namespace Rushing\SchemaForms\Console;
+namespace Splicewire\SchemaForms\Console;
 
 use Illuminate\Console\Command;
-use Rushing\SchemaForms\Outbox\OutboxDelivery;
+use Splicewire\SchemaForms\Outbox\OutboxDelivery;
 
 /**
  * `php artisan schema-forms:replay-notifications` — redeliver notifications that never

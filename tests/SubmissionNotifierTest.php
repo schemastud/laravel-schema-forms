@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Notification;
-use Rushing\SchemaForms\Actions\RecordsSubmissions;
-use Rushing\SchemaForms\Contracts\SubmissionNotifier;
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Models\FormSubmission;
-use Rushing\SchemaForms\Notifications\NewSubmissionNotification;
+use Splicewire\SchemaForms\Actions\RecordsSubmissions;
+use Splicewire\SchemaForms\Contracts\SubmissionNotifier;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Notifications\NewSubmissionNotification;
 
 it('sends the default mail notification to the intent recipient', function () {
     Notification::fake();

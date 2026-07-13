@@ -1,14 +1,14 @@
 <?php
 
-namespace Rushing\SchemaForms\Notifications;
+namespace Splicewire\SchemaForms\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Listeners\NotifyOnSubmission;
-use Rushing\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Listeners\NotifyOnSubmission;
+use Splicewire\SchemaForms\Models\FormSubmission;
 
 /**
  * The generic mail body for a new submission — one form-agnostic template that lists the

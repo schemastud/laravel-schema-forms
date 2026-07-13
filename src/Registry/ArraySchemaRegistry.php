@@ -1,8 +1,8 @@
 <?php
 
-namespace Rushing\SchemaForms\Registry;
+namespace Splicewire\SchemaForms\Registry;
 
-use Rushing\SchemaForms\Contracts\SchemaRegistry;
+use Splicewire\SchemaForms\Contracts\SchemaRegistry;
 
 /**
  * The default registry: resolves a form key against an in-memory map of decoded

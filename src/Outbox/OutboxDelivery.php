@@ -1,14 +1,14 @@
 <?php
 
-namespace Rushing\SchemaForms\Outbox;
+namespace Splicewire\SchemaForms\Outbox;
 
 use Illuminate\Support\Str;
-use Rushing\SchemaForms\Contracts\SubmissionNotifier;
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Models\FormSubmission;
-use Rushing\SchemaForms\Models\SubmissionNotification;
-use Rushing\SchemaForms\Notifiers\MailSubmissionNotifier;
-use Rushing\SchemaForms\Notifiers\OutboxSubmissionNotifier;
+use Splicewire\SchemaForms\Contracts\SubmissionNotifier;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Models\SubmissionNotification;
+use Splicewire\SchemaForms\Notifiers\MailSubmissionNotifier;
+use Splicewire\SchemaForms\Notifiers\OutboxSubmissionNotifier;
 
 /**
  * The transactional-outbox engine behind the notifier seam. Every notification is

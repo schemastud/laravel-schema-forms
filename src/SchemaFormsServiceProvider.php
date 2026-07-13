@@ -1,19 +1,19 @@
 <?php
 
-namespace Rushing\SchemaForms;
+namespace Splicewire\SchemaForms;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use Rushing\SchemaForms\Console\ReplaySubmissionNotificationsCommand;
-use Rushing\SchemaForms\Console\SchemaFormsInstallCommand;
-use Rushing\SchemaForms\Contracts\SchemaRegistry;
-use Rushing\SchemaForms\Contracts\SubmissionNotifier;
-use Rushing\SchemaForms\Events\SubmissionReceived;
-use Rushing\SchemaForms\Listeners\NotifyOnSubmission;
-use Rushing\SchemaForms\Notifiers\MailSubmissionNotifier;
-use Rushing\SchemaForms\Notifiers\OutboxSubmissionNotifier;
-use Rushing\SchemaForms\Outbox\OutboxDelivery;
-use Rushing\SchemaForms\Registry\ArraySchemaRegistry;
+use Splicewire\SchemaForms\Console\ReplaySubmissionNotificationsCommand;
+use Splicewire\SchemaForms\Console\SchemaFormsInstallCommand;
+use Splicewire\SchemaForms\Contracts\SchemaRegistry;
+use Splicewire\SchemaForms\Contracts\SubmissionNotifier;
+use Splicewire\SchemaForms\Events\SubmissionReceived;
+use Splicewire\SchemaForms\Listeners\NotifyOnSubmission;
+use Splicewire\SchemaForms\Notifiers\MailSubmissionNotifier;
+use Splicewire\SchemaForms\Notifiers\OutboxSubmissionNotifier;
+use Splicewire\SchemaForms\Outbox\OutboxDelivery;
+use Splicewire\SchemaForms\Registry\ArraySchemaRegistry;
 
 /**
  * Wires the host-agnostic schema-form primitive: config, the submissions + notification

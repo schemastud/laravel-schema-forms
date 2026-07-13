@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Event;
-use Rushing\SchemaForms\Actions\RecordsSubmissions;
-use Rushing\SchemaForms\Events\SubmissionReceived;
-use Rushing\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Actions\RecordsSubmissions;
+use Splicewire\SchemaForms\Events\SubmissionReceived;
+use Splicewire\SchemaForms\Models\FormSubmission;
 
 it('persists a submission and fires SubmissionReceived', function () {
     Event::fake([SubmissionReceived::class]);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Rushing\SchemaForms\Tests;
+namespace Splicewire\SchemaForms\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Rushing\SchemaForms\Keywords;
-use Rushing\SchemaForms\SchemaFormsServiceProvider;
 use Spatie\LaravelData\LaravelDataServiceProvider;
+use Splicewire\SchemaForms\Keywords;
+use Splicewire\SchemaForms\SchemaFormsServiceProvider;
 
 abstract class TestCase extends Orchestra
 {

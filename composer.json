@@ -1,6 +1,6 @@
 {
-    "name": "rushing/laravel-schema-forms",
-    "description": "Host-agnostic schema-form primitive: a JSON-Schema-defined form is validated (opis), stored via a swappable FormSubmission model, and optionally notified through a tenant-swappable SubmissionNotifier seam with a record-before-deliver notification outbox (track + replay). Owns the x-notify keyword.",
+    "name": "splicewire/laravel-schema-forms",
+    "description": "Host-agnostic schema-form primitive: a JSON-Schema-defined form is validated (opis), stored via a swappable FormSubmission model, and optionally notified through a tenant-swappable SubmissionNotifier seam with a record-before-deliver notification outbox (track + replay). Owns the x-swf-notify keyword.",
     "keywords": [
         "laravel",
         "forms",
@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Rushing\\SchemaForms\\": "src/"
+            "Splicewire\\SchemaForms\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rushing\\SchemaForms\\Tests\\": "tests/"
+            "Splicewire\\SchemaForms\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -50,7 +50,7 @@
         },
         "laravel": {
             "providers": [
-                "Rushing\\SchemaForms\\SchemaFormsServiceProvider"
+                "Splicewire\\SchemaForms\\SchemaFormsServiceProvider"
             ]
         },
         "merge-plugin": {

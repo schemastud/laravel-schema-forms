@@ -1,10 +1,10 @@
 <?php
 
-namespace Rushing\SchemaForms\Actions;
+namespace Splicewire\SchemaForms\Actions;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use Rushing\SchemaForms\Events\SubmissionReceived;
-use Rushing\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Events\SubmissionReceived;
+use Splicewire\SchemaForms\Models\FormSubmission;
 
 /**
  * The single deep interface of the base store: persist a {@see FormSubmission}

@@ -1,9 +1,9 @@
 <?php
 
-namespace Rushing\SchemaForms\Contracts;
+namespace Splicewire\SchemaForms\Contracts;
 
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Models\FormSubmission;
 
 /**
  * The host-swappable seam. A single-method invocable: given a persisted submission and

@@ -7,15 +7,15 @@ notification **outbox** (track + replay), and the `x-notify` keyword. No routes,
 no vertical vocabulary — a host mounts the delivery surface on top.
 
 Consumed by central splicewire-app (leads) and by
-`rushing/laravel-splicewire-satellite-schema-form` (the satellite HTTP delivery layer).
+`splicewire/laravel-satellite-schema-form` (the satellite HTTP delivery layer).
 
-> Not to be confused with `rushing/laravel-data-schemas`, which *generates* JSON Schema
+> Not to be confused with `schemastud/laravel-data-schemas`, which *generates* JSON Schema
 > from Data classes. This package *consumes* JSON schemas to validate and store forms.
 
 ## The store
 
 ```php
-use Rushing\SchemaForms\Actions\RecordsSubmissions;
+use Splicewire\SchemaForms\Actions\RecordsSubmissions;
 
 $submission = app(RecordsSubmissions::class)->record(
     formKey: 'waitlist',

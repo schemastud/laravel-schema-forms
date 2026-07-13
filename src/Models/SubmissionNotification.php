@@ -1,11 +1,11 @@
 <?php
 
-namespace Rushing\SchemaForms\Models;
+namespace Splicewire\SchemaForms\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
-use Rushing\SchemaForms\Outbox\OutboxDelivery;
+use Splicewire\SchemaForms\Outbox\OutboxDelivery;
 
 /**
  * A durable record of one submission-notification attempt: who it was for, where it

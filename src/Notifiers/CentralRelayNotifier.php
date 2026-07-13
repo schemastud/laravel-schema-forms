@@ -1,12 +1,12 @@
 <?php
 
-namespace Rushing\SchemaForms\Notifiers;
+namespace Splicewire\SchemaForms\Notifiers;
 
 use Illuminate\Support\Facades\Http;
-use Rushing\SchemaForms\Contracts\SubmissionNotifier;
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Models\FormSubmission;
-use Rushing\SchemaForms\Notifiers\Exceptions\CentralRelayNotConfigured;
+use Splicewire\SchemaForms\Contracts\SubmissionNotifier;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Notifiers\Exceptions\CentralRelayNotConfigured;
 
 /**
  * The "central turnkey" delivery seam: instead of sending mail locally, forward the

@@ -2,15 +2,15 @@
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Notification;
-use Rushing\SchemaForms\Actions\RecordsSubmissions;
-use Rushing\SchemaForms\Contracts\SubmissionNotifier;
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Models\FormSubmission;
-use Rushing\SchemaForms\Models\SubmissionNotification;
-use Rushing\SchemaForms\Notifications\NewSubmissionNotification;
-use Rushing\SchemaForms\Notifiers\CentralRelayNotifier;
-use Rushing\SchemaForms\Notifiers\Exceptions\CentralRelayNotConfigured;
-use Rushing\SchemaForms\Outbox\OutboxDelivery;
+use Splicewire\SchemaForms\Actions\RecordsSubmissions;
+use Splicewire\SchemaForms\Contracts\SubmissionNotifier;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Models\SubmissionNotification;
+use Splicewire\SchemaForms\Notifications\NewSubmissionNotification;
+use Splicewire\SchemaForms\Notifiers\CentralRelayNotifier;
+use Splicewire\SchemaForms\Notifiers\Exceptions\CentralRelayNotConfigured;
+use Splicewire\SchemaForms\Outbox\OutboxDelivery;
 
 /** Bind a delivery notifier whose success/failure the test flips via `shouldFail`. */
 function bindTogglingNotifier(bool $shouldFail = true): object

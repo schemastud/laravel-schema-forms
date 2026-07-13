@@ -1,6 +1,6 @@
 <?php
 
-namespace Rushing\SchemaForms\Models;
+namespace Splicewire\SchemaForms\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;

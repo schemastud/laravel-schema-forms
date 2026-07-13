@@ -1,8 +1,8 @@
 <?php
 
-use Rushing\SchemaForms\Models\FormSubmission;
-use Rushing\SchemaForms\Models\SubmissionNotification;
-use Rushing\SchemaForms\Notifiers\MailSubmissionNotifier;
+use Splicewire\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Models\SubmissionNotification;
+use Splicewire\SchemaForms\Notifiers\MailSubmissionNotifier;
 
 return [
     /*

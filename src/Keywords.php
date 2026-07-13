@@ -1,6 +1,6 @@
 <?php
 
-namespace Rushing\SchemaForms;
+namespace Splicewire\SchemaForms;
 
 /**
  * The JSON-Schema extension keywords THIS package owns.

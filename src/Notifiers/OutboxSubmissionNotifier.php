@@ -1,11 +1,11 @@
 <?php
 
-namespace Rushing\SchemaForms\Notifiers;
+namespace Splicewire\SchemaForms\Notifiers;
 
-use Rushing\SchemaForms\Contracts\SubmissionNotifier;
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Models\FormSubmission;
-use Rushing\SchemaForms\Outbox\OutboxDelivery;
+use Splicewire\SchemaForms\Contracts\SubmissionNotifier;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Outbox\OutboxDelivery;
 
 /**
  * The default binding when the outbox is enabled: a decorator that records every

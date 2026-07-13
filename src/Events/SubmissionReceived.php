@@ -1,8 +1,8 @@
 <?php
 
-namespace Rushing\SchemaForms\Events;
+namespace Splicewire\SchemaForms\Events;
 
-use Rushing\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Models\FormSubmission;
 
 /**
  * The only outward signal the base store emits: a submission has been durably

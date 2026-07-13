@@ -1,6 +1,6 @@
 <?php
 
-namespace Rushing\SchemaForms\Notifiers\Exceptions;
+namespace Splicewire\SchemaForms\Notifiers\Exceptions;
 
 use RuntimeException;
 

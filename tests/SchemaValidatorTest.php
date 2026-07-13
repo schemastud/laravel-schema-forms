@@ -1,6 +1,6 @@
 <?php
 
-use Rushing\SchemaForms\Validation\SchemaValidator;
+use Splicewire\SchemaForms\Validation\SchemaValidator;
 
 $schema = [
     '$id' => 'waitlist/1',

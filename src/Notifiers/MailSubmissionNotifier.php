@@ -1,12 +1,12 @@
 <?php
 
-namespace Rushing\SchemaForms\Notifiers;
+namespace Splicewire\SchemaForms\Notifiers;
 
 use Illuminate\Support\Facades\Notification;
-use Rushing\SchemaForms\Contracts\SubmissionNotifier;
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Models\FormSubmission;
-use Rushing\SchemaForms\Notifications\NewSubmissionNotification;
+use Splicewire\SchemaForms\Contracts\SubmissionNotifier;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Models\FormSubmission;
+use Splicewire\SchemaForms\Notifications\NewSubmissionNotification;
 
 /**
  * The default binding: mail a NewSubmissionNotification to the intent's recipient. With no

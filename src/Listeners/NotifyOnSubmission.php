@@ -1,11 +1,11 @@
 <?php
 
-namespace Rushing\SchemaForms\Listeners;
+namespace Splicewire\SchemaForms\Listeners;
 
-use Rushing\SchemaForms\Contracts\SchemaRegistry;
-use Rushing\SchemaForms\Contracts\SubmissionNotifier;
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Events\SubmissionReceived;
+use Splicewire\SchemaForms\Contracts\SchemaRegistry;
+use Splicewire\SchemaForms\Contracts\SubmissionNotifier;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Events\SubmissionReceived;
 
 /**
  * Bridges the base store's SubmissionReceived event to the host-swappable

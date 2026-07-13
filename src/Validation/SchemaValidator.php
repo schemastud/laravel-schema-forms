@@ -1,6 +1,6 @@
 <?php
 
-namespace Rushing\SchemaForms\Validation;
+namespace Splicewire\SchemaForms\Validation;
 
 use Opis\JsonSchema\Errors\ErrorFormatter;
 use Opis\JsonSchema\Validator;

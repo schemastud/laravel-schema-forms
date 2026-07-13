@@ -1,11 +1,11 @@
 <?php
 
-namespace Rushing\SchemaForms\Data;
+namespace Splicewire\SchemaForms\Data;
 
 use Schemastud\DataSchemas\Contracts\SchemaIdentity;
-use Rushing\SchemaForms\Keywords;
 use Spatie\LaravelData\Data;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
+use Splicewire\SchemaForms\Keywords;
 
 /**
  * Where a submission's notification should go, built from the form schema's

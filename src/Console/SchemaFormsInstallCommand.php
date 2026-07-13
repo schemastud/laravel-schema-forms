@@ -1,6 +1,6 @@
 <?php
 
-namespace Rushing\SchemaForms\Console;
+namespace Splicewire\SchemaForms\Console;
 
 use Illuminate\Console\Command;
 

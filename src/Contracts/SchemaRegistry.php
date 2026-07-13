@@ -1,8 +1,8 @@
 <?php
 
-namespace Rushing\SchemaForms\Contracts;
+namespace Splicewire\SchemaForms\Contracts;
 
-use Rushing\SchemaForms\Registry\ArraySchemaRegistry;
+use Splicewire\SchemaForms\Registry\ArraySchemaRegistry;
 
 /**
  * Resolves a form key to its JSON-Schema document (including any `x-swf-notify` keyword),

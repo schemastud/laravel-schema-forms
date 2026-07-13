@@ -1,8 +1,8 @@
 <?php
 
-use Rushing\SchemaForms\Data\NotifyIntent;
-use Rushing\SchemaForms\Keywords;
 use Spatie\TypeScriptTransformer\Attributes\TypeScript;
+use Splicewire\SchemaForms\Data\NotifyIntent;
+use Splicewire\SchemaForms\Keywords;
 
 it('declares a stable, versioned schema identity', function () {
     expect(NotifyIntent::schemaName())->toBe('schema-form/notify-intent')
