@@ -30,7 +30,13 @@ class SchemaFormsServiceProvider extends ServiceProvider
 
         // The default registry resolves forms from config. A satellite rebinds this
         // contract to a file-based registry; another host could back it with a DB.
-        $this->app->bind(SchemaRegistry::class, fn () => new ArraySchemaRegistry(
+        // `bindIf` — not `bind` — so this is a true default: any satellite/host rebind
+        // wins regardless of provider load order. (Auto-discovery registers providers
+        // alphabetically, so `laravel-satellite-schema-form` loads *before*
+        // `laravel-schema-forms`; a plain `bind` here would clobber the satellite's
+        // file-based registry that registered first, silently starving the
+        // persist-then-notify listener of the schema's `x-swf-notify`.)
+        $this->app->bindIf(SchemaRegistry::class, fn () => new ArraySchemaRegistry(
             (array) config('schema-forms.forms', []),
         ));
 
