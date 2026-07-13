@@ -3,7 +3,7 @@
 The host-agnostic **schema-form primitive**: a JSON-Schema-defined form is *validated*,
 *stored*, and *optionally notified* — with reliable, replayable delivery. It owns the
 submission ledger, opis validation, the swappable `SubmissionNotifier` seam, the
-notification **outbox** (track + replay), and the `x-notify` keyword. No routes, no HTTP,
+notification **outbox** (track + replay), and the `x-swf-notify` keyword. No routes, no HTTP,
 no vertical vocabulary — a host mounts the delivery surface on top.
 
 Consumed by central splicewire-app (leads) and by
@@ -34,7 +34,7 @@ absent listener can never lose a submission.
 ## Notification (the seam)
 
 `SubmissionReceived` is handled by `NotifyOnSubmission`, which rebuilds a `NotifyIntent`
-from the form schema's `x-notify` (resolved through the `SchemaRegistry` contract, with a
+from the form schema's `x-swf-notify` (resolved through the `SchemaRegistry` contract, with a
 `schema-forms.default_notify` fallback) and invokes the bound `SubmissionNotifier`.
 
 - Default binding: `MailSubmissionNotifier`. Swap it by pointing `schema-forms.notifier` at

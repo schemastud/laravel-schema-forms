@@ -6,7 +6,7 @@ The host-agnostic **schema-form primitive**: *a JSON-Schema-defined form is vali
 stored, and optionally notified*. It owns the `FormSubmission` ledger and the act of
 persisting one, opis validation (`SchemaValidator`), the `SubmissionNotifier` seam, the
 notification outbox (`SubmissionNotification` + `OutboxDelivery`, track + replay), and the
-`x-notify` keyword. Everything transport-specific (HTTP routes, file-based schema
+`x-swf-notify` keyword. Everything transport-specific (HTTP routes, file-based schema
 resolution) lives in a host above it.
 
 ## Why it exists (engine/host seam)
@@ -24,7 +24,7 @@ with its own tables.
 
 This package was originally `rushing/laravel-form-submissions`, a deliberately *dumb* base
 leaf that "knows nothing about mail" (that PRD's US-17). The primitive (validation, the
-notifier seam, the outbox, `x-notify`) lived one layer up in the satellite package. It was
+notifier seam, the outbox, `x-swf-notify`) lived one layer up in the satellite package. It was
 merged **down** here and the package renamed, because every submission already carries a
 `schema_ref` — there is no schema-less consumer, so the dumb-ledger split was not earning its
 keep. `opis/json-schema` + `spatie/laravel-data` are now transitive deps (the reversal's
