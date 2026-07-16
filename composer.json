@@ -1,5 +1,5 @@
 {
-    "name": "splicewire/laravel-schema-forms",
+    "name": "schemastud/laravel-schema-forms",
     "description": "Host-agnostic schema-form primitive: a JSON-Schema-defined form is validated (opis), stored via a swappable FormSubmission model, and optionally notified through a tenant-swappable SubmissionNotifier seam with a record-before-deliver notification outbox (track + replay). Owns the x-swf-notify keyword.",
     "keywords": [
         "laravel",
