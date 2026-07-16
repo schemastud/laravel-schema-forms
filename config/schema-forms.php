@@ -65,6 +65,31 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | File-based form registry (the public door's schema source)
+    |--------------------------------------------------------------------------
+    |
+    | Directory of JSON-Schema documents, one per form, keyed by filename
+    | (`waitlist.json` -> form key `waitlist`). Files, not a DB table, so hosts stay
+    | light. Folded down from the retired laravel-satellite-schema-form, generalised
+    | off `splicewire.*`: the door and file registry were always generic.
+    |
+    */
+    'schema_path' => function_exists('resource_path') ? resource_path('schemas/forms') : null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Public door route registration
+    |--------------------------------------------------------------------------
+    |
+    | true (default): register POST /schema-forms/{form} (throttle:5,1). A host that
+    | mounts the endpoint itself — or drives the store directly from its own
+    | controllers (like central's LeadController / IntakeFormController) — sets false.
+    |
+    */
+    'register_routes' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Submission notifier (the tenant-swappable seam)
     |--------------------------------------------------------------------------
     |

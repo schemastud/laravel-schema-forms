@@ -4,6 +4,7 @@ namespace Splicewire\SchemaForms;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Splicewire\SchemaForms\Actions\RecordsSubmissions;
 use Splicewire\SchemaForms\Console\ReplaySubmissionNotificationsCommand;
 use Splicewire\SchemaForms\Console\SchemaFormsInstallCommand;
 use Splicewire\SchemaForms\Contracts\SchemaRegistry;
@@ -14,13 +15,18 @@ use Splicewire\SchemaForms\Notifiers\MailSubmissionNotifier;
 use Splicewire\SchemaForms\Notifiers\OutboxSubmissionNotifier;
 use Splicewire\SchemaForms\Outbox\OutboxDelivery;
 use Splicewire\SchemaForms\Registry\ArraySchemaRegistry;
+use Splicewire\SchemaForms\Registry\FileSchemaFormRegistry;
 
 /**
- * Wires the host-agnostic schema-form primitive: config, the submissions + notification
- * tables, the config-backed schema registry, the swappable SubmissionNotifier binding
- * (outbox-wrapped by default), the persist-then-notify listener, and the install + replay
- * commands. No routes, no HTTP, no vertical vocabulary — a host (satellite or central)
- * mounts the delivery surface and may rebind the registry to a file/DB-backed one.
+ * Wires the public form runtime: config, the submissions table, the schema registry (config-backed
+ * default + the folded-down file-based registry), the public door (`POST /schema-forms/{form}` +
+ * opis validation), the store-collapsed-onto-beam action, the swappable SubmissionNotifier binding
+ * (outbox-wrapped by default), the persist-then-notify listener, and the install + replay commands.
+ *
+ * The store verb now collapses onto beam (spec §3): {@see RecordsSubmissions}
+ * persists the submission as a beam SchemaRecord + a generic BeamSubmission reference. The door +
+ * file registry were folded down from the retired laravel-satellite-schema-form; only notify still
+ * lives fully here (a separate ticket re-homes it onto BeamSubmission::created).
  */
 class SchemaFormsServiceProvider extends ServiceProvider
 {
@@ -39,6 +45,13 @@ class SchemaFormsServiceProvider extends ServiceProvider
         $this->app->bindIf(SchemaRegistry::class, fn () => new ArraySchemaRegistry(
             (array) config('schema-forms.forms', []),
         ));
+
+        // The file-based registry (folded down from the retired satellite package). Bound (not
+        // singleton) so it reads the current `schema_path` each resolution — a broker that scopes
+        // the schema path per tenant is not pinned to whichever tenant resolved it first. The
+        // public door type-hints this concretely (it needs schemaRef()); notify resolution goes
+        // through the SchemaRegistry seam above, which an app may still override.
+        $this->app->bind(FileSchemaFormRegistry::class, fn () => FileSchemaFormRegistry::fromConfig());
 
         // The host-swappable seam. A host either points `schema-forms.notifier` at its
         // class (honored here) or rebinds the SubmissionNotifier contract in its own
@@ -68,6 +81,13 @@ class SchemaFormsServiceProvider extends ServiceProvider
         // per-tenant migration set instead (see config).
         if (config('schema-forms.register_migrations', true)) {
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        }
+
+        // The public door (folded down from the retired satellite package). A host that mounts the
+        // endpoint itself, or drives the store directly from its own controllers (central's
+        // LeadController / IntakeFormController), sets schema-forms.register_routes=false.
+        if (config('schema-forms.register_routes', true)) {
+            $this->loadRoutesFrom(__DIR__.'/../routes/schema-form.php');
         }
 
         if ($this->app->runningInConsole()) {
