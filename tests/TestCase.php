@@ -5,10 +5,10 @@ namespace Splicewire\SchemaForms\Tests;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Schemastud\Beam\BeamServiceProvider;
 use Spatie\Activitylog\ActivitylogServiceProvider;
 use Spatie\LaravelData\LaravelDataServiceProvider;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
+use Splicewire\Beam\BeamServiceProvider;
 use Splicewire\SchemaForms\Keywords;
 use Splicewire\SchemaForms\SchemaFormsServiceProvider;
 

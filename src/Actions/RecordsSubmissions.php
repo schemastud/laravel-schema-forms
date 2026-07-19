@@ -3,7 +3,7 @@
 namespace Splicewire\SchemaForms\Actions;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use Schemastud\Beam\Models\BeamSubmission;
+use Splicewire\Beam\Models\BeamSubmission;
 use Splicewire\SchemaForms\Events\SubmissionReceived;
 use Splicewire\SchemaForms\Models\FormSubmission;
 

@@ -1,6 +1,6 @@
 <?php
 
-use Schemastud\Beam\Models\BeamSubmission;
+use Splicewire\Beam\Models\BeamSubmission;
 use Splicewire\SchemaForms\Models\FormSubmission;
 
 beforeEach(function () {

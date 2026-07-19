@@ -3,7 +3,7 @@
 namespace Splicewire\SchemaForms\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Schemastud\Beam\Concerns\PersistsSchemaRecord;
+use Splicewire\Beam\Concerns\PersistsSchemaRecord;
 
 /**
  * The submission populator's record — a form submission IS a beam SchemaRecord (spec §1, the third

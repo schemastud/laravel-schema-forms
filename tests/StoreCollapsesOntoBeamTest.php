@@ -1,7 +1,7 @@
 <?php
 
-use Schemastud\Beam\Concerns\PersistsSchemaRecord;
-use Schemastud\Beam\Models\BeamSubmission;
+use Splicewire\Beam\Concerns\PersistsSchemaRecord;
+use Splicewire\Beam\Models\BeamSubmission;
 use Splicewire\SchemaForms\Actions\RecordsSubmissions;
 use Splicewire\SchemaForms\Models\FormSubmission;
 
